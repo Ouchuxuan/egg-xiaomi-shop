@@ -10,6 +10,13 @@ module.exports = appInfo => {
       '.html': 'ejs',
     },
   };
+  config.session = {
+    key: 'SESSION_ID',
+    maxAge: 864000,
+    httpOnly: true,
+    encrypt: true,
+    renew: true,
+  };
   // add your config here
   config.middleware = [];
 

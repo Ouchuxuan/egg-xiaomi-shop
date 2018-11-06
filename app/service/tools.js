@@ -9,7 +9,7 @@ class ToolsService extends Service {
       fontSize: 50,
       width: 100,
       height: 40,
-      background: '#cc9966',
+      background: '#fff',
     });
     this.ctx.session.code = captcha.text;
     return captcha;

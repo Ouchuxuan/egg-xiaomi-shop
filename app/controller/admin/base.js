@@ -9,6 +9,11 @@ class BaseController extends Controller {
   async error(redirectUrl) {
     await this.ctx.render('admin/public/error', { redirectUrl });
   }
+  async verify() {
+    const capCha = await this.service.tools.captcha();
+    this.ctx.response.type = 'image/svg+xml';
+    this.ctx.body = capCha.data;
+  }
 }
 
 module.exports = BaseController;
