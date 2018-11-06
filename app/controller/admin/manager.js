@@ -4,12 +4,13 @@ const Controller = require('egg').Controller;
 
 class ManagerController extends Controller {
   async index() {
-    await this.ctx.render('admin/manager/index.html', {
-      username: '张三',
-    });
+    await this.ctx.render('admin/manager/index');
   }
   async add() {
-    this.ctx.body = '管理员增加';
+    await this.ctx.render('admin/manager/add');
+  }
+  async edit() {
+    await this.ctx.render('admin/manager/edit');
   }
 }
 
