@@ -1,8 +1,8 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const BaseController = require('./base');
 
-class RoleController extends Controller {
+class RoleController extends BaseController {
   async index() {
     await this.ctx.render('admin/role/index');
   }
