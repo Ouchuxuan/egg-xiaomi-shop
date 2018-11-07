@@ -1,12 +1,12 @@
 'use strict';
 const svgCaptcha = require('svg-captcha');
 const Service = require('egg').Service;
-const md5 = require('md5');
+const baseMd5 = require('md5');
 
 class ToolsService extends Service {
   async captcha() {
     const captcha = svgCaptcha.create({
-      size: 6,
+      size: 4,
       fontSize: 50,
       width: 100,
       height: 40,
@@ -16,7 +16,7 @@ class ToolsService extends Service {
     return captcha;
   }
   async md5(str) {
-    return md5(str);
+    return baseMd5(str);
   }
   async getTime() {
     const date = new Date();
