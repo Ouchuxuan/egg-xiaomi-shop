@@ -18,7 +18,15 @@ module.exports = appInfo => {
     renew: true,
   };
   // add your config here
-  config.middleware = [];
-
+  config.middleware = [ 'adminAuth' ];
+  config.adminAuth = {
+    match: '/admin',
+  };
+  exports.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1:27017/xiaomishop',
+      options: {},
+    },
+  };
   return config;
 };

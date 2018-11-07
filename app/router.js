@@ -16,7 +16,6 @@ module.exports = app => {
   router.get('/admin/role/add', controller.admin.role.add);
   router.get('/admin/role/edit', controller.admin.role.edit);
   router.get('/admin/login', controller.admin.login.index);
-  router.get('/admin/doLogin', controller.admin.login.doLogin);
-  // 验证码
+  router.post('/admin/doLogin', controller.admin.login.doLogin);
   router.get('/admin/verify', controller.admin.base.verify);
 };

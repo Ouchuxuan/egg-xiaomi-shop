@@ -3,11 +3,15 @@
 const Controller = require('egg').Controller;
 
 class BaseController extends Controller {
-  async success(redirectUrl) {
-    await this.ctx.render('admin/public/success', { redirectUrl });
+  async success(redirectUrl, message = '操作成功!') {
+    await this.ctx.render('admin/public/success',
+      { redirectUrl, message }
+    );
   }
-  async error(redirectUrl) {
-    await this.ctx.render('admin/public/error', { redirectUrl });
+  async error(redirectUrl, message = '操作成功!') {
+    await this.ctx.render('admin/public/error',
+      { redirectUrl, message }
+    );
   }
   async verify() {
     const capCha = await this.service.tools.captcha();
