@@ -11,8 +11,8 @@ class LoginController extends BaseController {
     const password = await this.service.tools.md5(this.ctx.request.body.password);
     if (code.toUpperCase() === this.ctx.session.code.toUpperCase()) {
       const result = await this.ctx.model.Admin.find({
-        'username': username,
-        'password': password,
+        username,
+        password,
       });
       if (result.length > 0) {
         this.ctx.session.userinfo = result[0];
