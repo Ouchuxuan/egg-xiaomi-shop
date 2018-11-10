@@ -41,15 +41,15 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        <% for(var i = 0; i < list.length; i++){ %>
                         <tr>
-                            <td>1</td>
-                            <td>图标</td>
-                            <td>背包1111111</td>
-                            <td>20元</td>
-                            <td class="text-center">修改 删除</td>
+                            <td><%= list[i].username%></td>
+                            <td><%= list[i].mobile%></td>
+                            <td><%= list[i].email%></td>
+                            <td><%=list[i].role[0].title%></td>
+                            <td class="text-center"><a href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a>　　　<a href="">删除</a></td>
                         </tr>
-
+                        <% } %>
 
 
                     </tbody>

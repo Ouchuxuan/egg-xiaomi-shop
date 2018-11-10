@@ -14,7 +14,8 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
-                        <form action="/doAdd" method="post">
+                        <form action="/admin/manager/doEdit" method="post">
+                            <input type="hidden" name="_csrf" value="<%=csrf%>">
                             <ul>
                                 <li>  商品名称: <input type="text" name="title"/></li>
 
