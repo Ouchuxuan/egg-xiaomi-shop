@@ -10,22 +10,30 @@
           
             <div class="panel panel-default">              
 			    <div class="panel-heading">
-                  增加商品
+                    修改管理员
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
                         <form action="/admin/manager/doEdit" method="post">
                             <input type="hidden" name="_csrf" value="<%=csrf%>">
+                            <input type="hidden" name="id" value="<%=adminResult._id%>">
                             <ul>
-                                <li>  商品名称: <input type="text" name="title"/></li>
-
-                                <li>  商品图片: <input type="file" name="pic"/></li>
-                                <li>  商品价格: <input type="text" name="price"/></li>
-                                <li>  商品邮费: <input type="text" name="fee"/></li>
+                                <li>  管理员名称: <input type="text" name="username" readonly value="<%=adminResult.username%>"/></li>
+                                <li>  管理员密码: <input type="password" name="password" value="<%=adminResult.password%>"/></li>
+                                <li>  管理员电话: <input type="text" name="mobile" value="<%=adminResult.mobile%>"/></li>
+                                <li>  管理员邮箱: <input type="text" name="email" value="<%=adminResult.email%>"/></li>
 
                                 <li>
-                                    商品描述:
-                                    <textarea name="description" id="" cols="60" rows="8"></textarea>
+                                    管理员角色:
+                                   <select name="role_id" id="role_id">
+                                       <% for(var i = 0; i < roleResult.length; i++){ %>
+                                            <% if(roleResult[i].id.toString() === adminResult.role_id.toString()){ %>
+                                                <option value="<%=roleResult[i]._id%>" selected><%=roleResult[i].title%></option>
+                                                <% } else { %>
+                                                    <option value="<%=roleResult[i]._id%>"><%=roleResult[i].title%></option>
+                                                <% } %>
+                                       <% } %>
+                                   </select>
                                 </li>
 
                                 <li>

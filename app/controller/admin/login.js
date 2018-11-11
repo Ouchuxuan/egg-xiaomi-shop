@@ -18,10 +18,11 @@ class LoginController extends BaseController {
         this.ctx.session.userinfo = result[0];
         this.ctx.redirect('/admin/manager');
       } else {
+        console.log('33333333333333333333333333');
         await this.error('/admin/login', '用户名或密码不对!');
       }
     } else {
-      await this.error('admin/login', '验证码错误');
+      await this.error('/admin/login', '验证码错误');
     }
   }
   async loginOut() {

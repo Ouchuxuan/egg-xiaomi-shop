@@ -24,7 +24,6 @@ class ManagerController extends BaseController {
     await this.ctx.render('admin/manager/add', { roleResult });
   }
   async doAdd() {
-    console.log(this.ctx.request.body);
     const addResult = this.ctx.request.body;
     // 密码加密
     if (addResult.password) {
@@ -42,7 +41,26 @@ class ManagerController extends BaseController {
     }
   }
   async edit() {
-    await this.ctx.render('admin/manager/edit');
+    const id = this.ctx.request.query.id;
+    // 获取管理员信息
+    const adminResult = await this.ctx.model.Admin.find({ _id: id });
+    // 获取角色列表
+    const roleResult = await this.ctx.model.Role.find();
+    await this.ctx.render('admin/manager/edit', {
+      adminResult: adminResult[0],
+      roleResult,
+    });
+  }
+  async doEdit() {
+    let { id, password, mobile, email, role_id } = this.ctx.request.body;
+    password = await this.service.tools.md5(password);
+    await this.ctx.model.Admin.updateOne({ _id: id }, {
+      password,
+      mobile,
+      email,
+      role_id,
+    });
+    await this.success('/admin/manager', '修改管理员信息成功!');
   }
 }
 
