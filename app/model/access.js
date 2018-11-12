@@ -7,7 +7,7 @@ module.exports = app => {
     module_name: { type: String },
     action_name: { type: String },
     type: { type: Number },
-    url: { type: Number },
+    url: { type: String },
     module_id: {
       type: Schema.Types.Mixed,
     },
