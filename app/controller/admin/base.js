@@ -19,8 +19,8 @@ class BaseController extends Controller {
     this.ctx.body = capCha.data;
   }
   async delete() {
-    const { _id, model } = this.ctx.request.query;
-    await this.ctx.model[model].deleteOne({ _id });
+    const { id, model } = this.ctx.request.query;
+    await this.ctx.model[model].deleteOne({ _id: id });
     this.ctx.redirect(this.ctx.state.prevPage);
   }
 }
