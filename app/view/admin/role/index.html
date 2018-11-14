@@ -28,7 +28,7 @@
                                 <td><%= list[i].title %></td>
                                 <td><%= list[i].description %></td>
                                 <td><%= list[i].add_time %></td>
-                                <td class="text-center" style="cursor:pointer;"><a href="/admin/role/edit?id=<%=list[i]._id %>">修改</a>　　　<a href="/admin/delete?model=Role&_id=<%= list[i]._id %>">删除</a></td>
+                                <td class="text-center" style="cursor:pointer;"><a href="/admin/role/auth?id=<%=list[i]._id%>">授权</a>　   <a href="/admin/role/edit?id=<%=list[i]._id %>">修改</a>　<a href="/admin/delete?model=Role&_id=<%= list[i]._id %>">删除</a></td>
                              </tr>
                         <% } %>
                     </tbody>
