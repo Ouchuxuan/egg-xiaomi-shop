@@ -22,7 +22,7 @@ class AdminService extends Service {
       return true;
     }
     // 3、根据角色获取当前角色的权限列表
-    const accessResult = this.ctx.model.RoleAccess.find({ role_id });
+    const accessResult = await this.ctx.model.RoleAccess.find({ role_id });
     // 当前角色可访问的权限列表
     let accessArray = [];
     accessResult.forEach(element => {
@@ -36,6 +36,12 @@ class AdminService extends Service {
       }
     }
     return false;
+  }
+  async getAuthList(role_id) {
+    // 1、获取全部的权限
+    // 2、查询当前角色拥有的权限（查询当前角色的权限id） 把查找到的数据放在数组中
+    // 3、循环遍历所有的权限数据     判断当前权限是否在角色权限的数组中，   如果在角色权限的数组中：选中    如果不在角色权限的数组中不选中
+    // const result = await this.ctx.
   }
 }
 

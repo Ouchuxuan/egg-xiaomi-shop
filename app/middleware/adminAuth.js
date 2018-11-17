@@ -7,7 +7,13 @@ module.exports = options => {
     const pathName = url.parse(ctx.request.url).pathname;
     if (ctx.session.userinfo) {
       ctx.state.userinfo = ctx.session.userinfo;
-      await next();
+      const hasAuth = await ctx.service.admin.checkAuth();
+      if (hasAuth) {
+        // ctx.state.asideList = await ctx
+        await next();
+      } else {
+        ctx.body = '您没有权限访问当前地址';
+      }
     } else {
       if (pathName === '/admin/login' || pathName === '/admin/doLogin' || pathName === '/admin/verify') {
         await next();
