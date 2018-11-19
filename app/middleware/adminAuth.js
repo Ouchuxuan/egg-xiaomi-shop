@@ -9,7 +9,7 @@ module.exports = options => {
       ctx.state.userinfo = ctx.session.userinfo;
       const hasAuth = await ctx.service.admin.checkAuth();
       if (hasAuth) {
-        // ctx.state.asideList = await ctx
+        ctx.state.asideList = await ctx.service.admin.getAuthList(ctx.session.userinfo.role_id);
         await next();
       } else {
         ctx.body = '您没有权限访问当前地址';

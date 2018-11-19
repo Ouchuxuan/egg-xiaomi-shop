@@ -64,6 +64,21 @@ class RoleController extends BaseController {
       },
     },
     ]);
+    const accessResult = await this.ctx.model.RoleAccess.find({ role_id });
+    let roleAccessArray = [];
+    accessResult.forEach(value => {
+      roleAccessArray.push(value.access_id.toString());
+    });
+    for (let i = 0; i < result.length; i++) {
+      if (roleAccessArray.indexOf(result[i]._id.toString()) !== -1) {
+        result[i].checked = true;
+      }
+      for (let j = 0; j < result[i].items.length; j++) {
+        if (roleAccessArray.indexOf(result[i].items[j]._id.toString()) !== -1) {
+          result[i].items[j].checked = true;
+        }
+      }
+    }
     await this.ctx.render('/admin/role/auth', {
       list: result,
       role_id,

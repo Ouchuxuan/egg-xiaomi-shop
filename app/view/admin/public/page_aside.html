@@ -1,31 +1,28 @@
 <ul class="aside">
 
-    <li>
-        <h4>管理员管理</h4>
-
-        <ul>
-            <li class="list-group-item"> <a href="/admin/manager"> 管理员列表</a></li>
-
-            <li class="list-group-item"> <a href="/admin/manager/add">增加管理员</a></li>
-        </ul>
-    </li>
-
-    <li>
-        <h4>角色管理</h4>
-        <ul>
-            <li class="list-group-item"> <a href="/admin/role"> 角色列表</a></li>
-
-            <li class="list-group-item"> <a href="/admin/role/add">增加角色</a></li>
-        </ul>
-    </li>
-    <li>
-        <h4>权限管理</h4>
-        <ul>
-            <li class="list-group-item"> <a href="/admin/access"> 权限列表</a></li>
-
-            <li class="list-group-item"> <a href="/admin/access/add">增加权限</a></li>
-        </ul>
-    </li>
+    
+    <%for(var i=0;i<asideList.length;i++){%>
+         		
+        <li>
+    
+                <%if((asideList[i].checked && asideList[i].type==1) || (userinfo.is_super==1&& asideList[i].type==1)){%>
+                    <h4> <%=asideList[i].module_name %></h4>                     
+                    <ul>
+    
+                            <%for(var j=0;j<asideList[i].items.length;j++){%> 
+                                <%if((asideList[i].items[j].checked && asideList[i].items[j].type!=3) || (userinfo.is_super==1 && asideList[i].items[j].type!=3)){%>
+                                    <li  class="list-group-item"> <a href="<%=asideList[i].items[j].url%>">  <%=asideList[i].items[j].action_name %></a></li>
+                                <%}%>
+                            <%}%>
+                    </ul>
+    
+    
+                <%}%>
+              
+        </li>
+    
+        <%}%>
+    
     <!-- <li>
         <h4>商品管理</h4>
         

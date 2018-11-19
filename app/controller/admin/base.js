@@ -23,6 +23,9 @@ class BaseController extends Controller {
     await this.ctx.model[model].deleteOne({ _id: id });
     this.ctx.redirect(this.ctx.state.prevPage);
   }
+  async changeStatus() {
+    const { model, attr, id } = this.ctx.request.query;
+  }
 }
 
 module.exports = BaseController;
