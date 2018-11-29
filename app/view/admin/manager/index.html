@@ -37,6 +37,7 @@
                             <th>管理员电话</th>
                             <th>管理员邮箱</th>
                             <th>管理员角色</th>
+                            <th class="text-center">状态</th>
                             <th class="text-center">操作</th>
                         </tr>
                     </thead>
@@ -47,6 +48,17 @@
                             <td><%= list[i].mobile%></td>
                             <td><%= list[i].email%></td>
                             <td><%=list[i].role[0].title%></td>
+                            <td class="text-center">
+
+                                <%if(list[i].status==1){%>
+
+                                <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')" />
+
+                                <%}else{%>
+                                <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')" />
+                                <%}%>
+
+                            </td>
                             <td class="text-center"><a href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a>　　　<a href="/admin/delete?id=<%list[i]._id%>&model=Admin">删除</a></td>
                         </tr>
                         <% } %>

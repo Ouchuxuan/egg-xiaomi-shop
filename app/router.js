@@ -33,4 +33,5 @@ module.exports = app => {
   // 其他
   router.get('/admin/verify', controller.admin.base.verify);
   router.get('/admin/delete', controller.admin.base.delete);
+  router.get('/admin/changeStatus', controller.admin.base.changeStatus);
 };
