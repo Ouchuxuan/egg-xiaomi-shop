@@ -30,6 +30,10 @@ module.exports = app => {
   router.get('/admin/login', controller.admin.login.index);
   router.post('/admin/doLogin', controller.admin.login.doLogin);
   router.get('/admin/loginOut', controller.admin.login.loginOut);
+  // 轮播图相关
+  router.get('/admin/focus', controller.admin.focus.index);
+  router.get('/admin/focus/add', controller.admin.focus.add);
+  router.post('/admin/focus/doAdd', controller.admin.focus.doAdd);
   // 其他
   router.get('/admin/verify', controller.admin.base.verify);
   router.get('/admin/delete', controller.admin.base.delete);
