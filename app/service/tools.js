@@ -29,9 +29,9 @@ class ToolsService extends Service {
     // 获取当前日期
     const day = sillyTime.format(new Date(), 'YYYYMMDD');
     // 创建图片保存路径
-    const dir = path.join(this.config.baseDir, day);
+    const dir = path.join(this.config.uploadDir, day);
     await mkdirp(dir);
-    // 毫米数
+    // 毫秒数
     const time = await this.getTime();
     // 返回图片保存的路径
     const uploadDir = path.join(dir, time + path.extname(filename));

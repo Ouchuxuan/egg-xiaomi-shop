@@ -19,8 +19,7 @@ class FocusController extends BaseController {
     let files = {};
     let stream;
     while ((stream = await parts()) !== null) {
-      stream = await parts();
-      if (!stream.filename) {
+      if (!stream || !stream.filename) {
         break;
       }
       // 表单的名字
@@ -31,12 +30,19 @@ class FocusController extends BaseController {
       const writeStream = fs.createWriteStream(target);
       await pump(stream, writeStream);
       files = Object.assign(files, {
-        [filename]: dir.saveDir,
+        focus_img: dir.saveDir,
       });
     }
-    const focusResult = new this.model.Focus(Object.assign(files, parts.field));
+    const focusResult = new ctx.model.Focus(Object.assign(files, parts.field));
     await focusResult.save();
     await this.success('/admin/focus', '增加轮播图成功!');
+  }
+  async edit() {
+    const id = this.ctx.request.query.id;
+    const result = await this.ctx.model.Focus.find({ _id: id });
+    await this.ctx.render('/admin/focus/edit', {
+      list: result[0],
+    });
   }
 }
 

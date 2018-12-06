@@ -34,6 +34,7 @@ module.exports = app => {
   router.get('/admin/focus', controller.admin.focus.index);
   router.get('/admin/focus/add', controller.admin.focus.add);
   router.post('/admin/focus/doAdd', controller.admin.focus.doAdd);
+  router.get('/admin/focus/edit', controller.admin.focus.edit);
   // 其他
   router.get('/admin/verify', controller.admin.base.verify);
   router.get('/admin/delete', controller.admin.base.delete);

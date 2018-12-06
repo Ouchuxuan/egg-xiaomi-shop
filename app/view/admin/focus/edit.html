@@ -4,14 +4,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">
-            <%- include ../public/page_aside.html %>        		
-          
+            <%- include ../public/page_aside.html %>
+
         </div>
         <div class="col-sm-10">
-          
-            <div class="panel panel-default">              
-			    <div class="panel-heading">
-                  修改轮播图
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    修改轮播图
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
@@ -19,35 +19,41 @@
                             <ul>
                                 <input type="hidden" name="id" value="<%=list._id%>">
 
-                                <li>  分　　类: 
+                                <li> 分　　类:
 
 
                                     <select name="type" id="type">
 
-                                        <option <%if(list.type==1){%> selected <%}%> value="1">网站</option>
-                                        <option <%if(list.type==2){%> selected <%}%>  value="2">APP</option>
-                                        <option <%if(list.type==3){%> selected <%}%> value="3">小程序</option>
+                                        <option <%if(list.type==1){%> selected
+                                            <%}%> value="1">网站</option>
+                                        <option <%if(list.type==2){%> selected
+                                            <%}%> value="2">APP</option>
+                                        <option <%if(list.type==3){%> selected
+                                            <%}%> value="3">小程序</option>
                                     </select>
                                 </li>
-                                <li>  名　　称: <input type="text" name="title" value="<%=list.title%>"/></li>
-                                <li>  跳转地址: <input type="text" name="link" value="<%=list.link%>"/></li>
-                                <li>  轮 播 图: <input type="file" name="focus_img"/>
-                                        <br>
+                                <li> 名　　称: <input type="text" name="title" value="<%=list.title%>" /></li>
+                                <li> 跳转地址: <input type="text" name="link" value="<%=list.link%>" /></li>
+                                <li> 轮 播 图: <input type="file" name="focus_img" />
+                                    <br>
 
-                                        　　　　 <img class="pic" src="<%=list.focus_img%>" />
-                                
+                                    　　　　 <img class="pic" src="<%=list.focus_img%>" />
+
                                 </li>
-                                
-
-                                <li>  排　　序: <input type="text" name="sort" value="<%=list.sort%>"/></li>
 
 
-                                <li>  状　　态: <input type="radio" name="status" <%if(list.status==1){%> checked <%}%> value="1" id="a"/> <label for="a">显示</label>    <input type="radio"  <%if(list.status==0){%> checked <%}%>  name="status" value="0" id="b"/><label for="b">隐藏</label> 　</li>
+                                <li> 排　　序: <input type="text" name="sort" value="<%=list.sort%>" /></li>
 
-                               
+
+                                <li> 状　　态: <input type="radio" name="status" <%if(list.status==1){%> checked
+                                    <%}%> value="1" id="a"/> <label for="a">显示</label> <input type="radio"
+                                        <%if(list.status==0){%> checked
+                                    <%}%> name="status" value="0" id="b"/><label for="b">隐藏</label> 　</li>
+
+
 
                                 <li>
-                                    <br/>
+                                    <br />
                                     <button type="submit" class="btn btn-primary">提交</button>
                                 </li>
 
@@ -66,4 +72,5 @@
 </div>
 
 </body>
+
 </html>
